@@ -1,6 +1,6 @@
 {
   "name": "@distributed-systems/callsite",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "get structured callsite information",
   "main": "src/Callsite.js",
   "scripts": {

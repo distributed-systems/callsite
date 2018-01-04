@@ -68,7 +68,7 @@ module.exports = class CallSite {
         slice = 0,
         limit = 20,
         fn = this.getRawStack,
-        err = new Error(),
+        err,
         dontCapture = false,
     } = {}) {
         const originalFunction = Error.prepareStackTrace;
@@ -77,14 +77,17 @@ module.exports = class CallSite {
         Error.stackTraceLimit = limit;
         Error.prepareStackTrace = (originalFunction, stack) => stack;
 
+        err = err || new Error();
+
         // caputre from a cerrtain offset
         if (!dontCapture) Error.captureStackTrace(err, fn);
+        const frames = err.stack;
 
         // revert
         Error.prepareStackTrace = originalFunction;
         Error.stackTraceLimit = originalLimit;
         
         // return the raw stack
-        return err.stack.slice(slice);
+        return frames.slice(slice);
     }
 };
