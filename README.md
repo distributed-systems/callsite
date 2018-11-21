@@ -28,7 +28,6 @@ import Callsite from '@distributed-systems/callsite';
     line: 52,
     column: 27 
 }]
-s
 ```
 
 **Get Callsite Info**
