@@ -13,7 +13,7 @@ import Callsite from 'es-modules/distributed-systems/callsite/2.0.0+/index.mjs';
 
 NPM:
 ```javascript
-import Callsite from '@distributed-systems/stack-trace';
+import Callsite from '@distributed-systems/callsite';
 
 ```
 
