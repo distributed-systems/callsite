@@ -1,1 +1,0 @@
-/home/ee/dev/ds/stack-trace

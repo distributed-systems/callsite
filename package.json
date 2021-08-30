@@ -13,13 +13,14 @@
   "keywords": [
     "callsite"
   ],
-  "author": "Michael van der Weg",
+  "author": "Lina van der Weg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/distributed-systems/callsite/issues"
   },
   "homepage": "https://github.com/distributed-systems/callsite#readme",
+  "type": "module",
   "dependencies": {
-    "section-tests": "^2.2.3"
+    "@distributed-systems/stack-trace": "^2.0.0"
   }
 }

@@ -5,13 +5,13 @@ elevator-pitch: Get structured callsite information
 engine:
     node: 10.0.0+
 commands:
-    test: node --no-warnings --experimental-modules ./es-modules/distributed-systems/section-tests/x/bin/run.mjs ./test/*.mjs
+    test: node --no-warnings --experimental-modules ./es-modules/distributed-systems/section-tests/x/bin/run.js ./test/*.js
 npm-convert:
     source:
         - ./src
     destination: ./npm
     mapping:
-        distributed-systems/stack-trace: @distributed-systems/tack-trace
+        distributed-systems/stack-trace: @distributed-systems/stack-trace
 dev-link:
     - stack-trace
     - section-tests

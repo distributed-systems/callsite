@@ -1,4 +1,4 @@
-import StackTrace from '@distributed-systems/tack-trace';
+import StackTrace from '@distributed-systems/stack-trace/StackTrace.js';
 
 
 
@@ -23,7 +23,7 @@ export default class Callsite {
     */
     getStack({
         slice = 0,
-        limit = 1000,
+        limit = 1,
         err,
         fn = this.getStack,
     } = {}) {
@@ -38,7 +38,7 @@ export default class Callsite {
 
         // capture from a certain offset
         if (!dontCapture) Error.captureStackTrace(err, fn);
-        
+
         // get structured frames
         const frames = this.stackTrace.getStack(err); 
 

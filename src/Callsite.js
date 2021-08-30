@@ -1,4 +1,4 @@
-import StackTrace from '../es-modules/distributed-systems/stack-trace/1.0.0+/index.mjs';
+import StackTrace from '../es-modules/distributed-systems/stack-trace/2.0.0+/StackTrace.js';
 
 
 
@@ -38,7 +38,7 @@ export default class Callsite {
 
         // capture from a certain offset
         if (!dontCapture) Error.captureStackTrace(err, fn);
-        
+
         // get structured frames
         const frames = this.stackTrace.getStack(err); 
 
