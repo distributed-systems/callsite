@@ -17,7 +17,7 @@ export default class Callsite {
 
 
     /**
-    * eturn structured stack frames
+    * returns structured stack frames
     *
     * @returns {array} stack
     */

@@ -95,4 +95,29 @@ section('Callsite', (section) => {
         assert.equal(frames.length, 10);
         assert.equal(frames[0].name, 'a');
     });
+
+    section.test('getStack using a custom built error object', async () => {
+        const callsite = new Callsite();
+
+        const err = {
+            name: 'Error',
+            message: "Failed to resolve vraiable 'SERVICE_REGISTRY_DB_PASSWORD' on the config key 'database.hosts.0.password'!",
+            stack: `Error: Failed to resolve vraiable 'SERVICE_REGISTRY_DB_PASSWORD' on the config key 'database.hosts.0.password
+    at RainbowConfig.replaceSecrets (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:133:23)
+    at RainbowConfig.replaceSecrets (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:97:22)
+    at RainbowConfig.replaceSecrets (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:97:22)
+    at RainbowConfig.replaceSecrets (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:97:22)
+    at RainbowConfig.replaceSecrets (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:97:22)
+    at RainbowConfig.load (/node_modules/@rainbow-industries/rainbow-config/npm/src/RainbowConfig.js:87:14)
+    at async ServiceRegistry.loadConfig (/node_modules/@infect/rda-service/src/Service.js:317:9)
+    at async ServiceRegistry.initialize (/node_modules/@infect/rda-service/src/Service.js:117:13)
+    at async ServiceRegistry.load (/node_modules/@infect/rda-service-registry/src/Service.js:33:9)
+    at async ChildProcess.startService (/src/ChildProcess.js:56:9)`,
+          };
+
+        const frames = callsite.getStack({ err });
+        
+        assert.equal(frames.length, 10);
+        assert.equal(frames[0].name, 'RainbowConfig.replaceSecrets');
+    });
 });

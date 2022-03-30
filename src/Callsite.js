@@ -1,4 +1,4 @@
-import StackTrace from '../es-modules/distributed-systems/stack-trace/2.0.0+/StackTrace.js';
+import StackTrace from '../es-modules/distributed-systems/stack-trace/x/StackTrace.js';
 
 
 
@@ -17,7 +17,7 @@ export default class Callsite {
 
 
     /**
-    * eturn structured stack frames
+    * returns structured stack frames
     *
     * @returns {array} stack
     */
